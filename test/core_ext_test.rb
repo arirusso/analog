@@ -51,15 +51,15 @@ class CoreExtTest < Test::Unit::TestCase
 
     end
 
-    context "#from" do
+    context "#scaled_to" do
 
       should "take an array as the source" do
-        output = 8.scaled.from([0, 2, 4, 8, 16, 64]).to(0..10)
+        output = 8.scaled_to(0..10).from([0, 2, 4, 8, 16, 64])
         assert_equal(6, output)
       end
 
       should "output a float when specified" do
-        output = 12.scaled.from(0..120).to(0..1.0)
+        output = 12.scaled_to(0..1.0).from(0..120)
         assert_equal(0.10, output)   
       end
 
