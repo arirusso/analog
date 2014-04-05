@@ -1,3 +1,5 @@
+require "scale"
+
 # Extend the Numeric class to add a scaling helper. 
 # eg: 0.40.scaled_from(0..1).to([512, 128, 64, 32, 16, 12, 8, 4, 2, 0])
 #
