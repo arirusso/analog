@@ -4,21 +4,7 @@ class ScaleTest < Test::Unit::TestCase
 
   context "Scale" do
 
-    context "#initialize" do
-
-      should "recognize a Range" do
-        scheme = Scale::Scheme.new(:source => 0..1, :destination => 0..100)
-        assert_equal(Scale::Destination::Range, scheme.destination.class)
-      end
-
-      should "recognize an Array" do
-        scheme = Scale::Scheme.new(:source => 0..1, :destination => [0, 10, 20, 50])
-        assert_equal(Scale::Destination::Enumerable, scheme.destination.class)
-      end
-
-    end
-
-    context "#scale" do
+    context "#transform" do
 
       should "amplify" do
         output = Scale.transform(0.10).using(0..1, 0..127)
