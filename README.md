@@ -6,10 +6,6 @@ A Ruby helper for scaling numbers.
 
 Provides a quick way to scale a number from one range or set to another.
 
-This is useful for converting data from raw values to a range used for display or other kinds of output.
-
-I use it all the time in music programming, converting OSC messages to musical notes and things like that and figure it might be useful to others.
-
 A simple example is:
 
 You want to plot a point on a 500px graph using a data that lies in the 0..1 range.
@@ -18,6 +14,10 @@ You want to plot a point on a 500px graph using a data that lies in the 0..1 ran
 Scale.transform(0.5).from(0..1).to(0..500)
 => 250
 ```
+
+This is generally useful for converting data from raw values to a range used for display or other kinds of output.
+
+I use it all the time in music programming, converting OSC messages to musical notes and things like that and figure it might be useful to others.
 
 Please note: I am not a Math Person.  If I've named any concepts here poorly, [please let me know](https://github.com/arirusso/analog/issues).  Or [submit a pull request](https://github.com/arirusso/analog/pulls)
 
