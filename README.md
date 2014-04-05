@@ -4,15 +4,15 @@ A Ruby helper for scaling numbers.
 
 #### Background
 
-This helper provides a quick way to take a number and scale it given a source and destination range/set/etc.
+Provides a quick way to scale a number from one range or set to another.
 
-It's useful for converting data from raw values to a range used for display or other kinds of output.
+This is useful for converting data from raw values to a range used for display or other kinds of output.
 
-I use this all the time in music programming, converting OSC messages to musical notes and things like that and figure it might be useful to others.
+I use it all the time in music programming, converting OSC messages to musical notes and things like that and figure it might be useful to others.
 
 A simple example is:
 
-If you want to plot a point on a 500px graph using a data that lies in the 0..1 range, do
+You want to plot a point on a 500px graph using a data that lies in the 0..1 range.
 
 ```ruby
 Scale.transform(0.5).using(0..1, 0..500)
