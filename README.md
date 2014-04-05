@@ -4,9 +4,7 @@ A Ruby helper for scaling numbers.
 
 #### Background
 
-Please note: I am not a Math Person.  If I've named any concepts here poorly, please let me know!  Or submit a pull request
-
-This library allows you to take a number and scale it given a source and destination range/set/etc.
+This helper provides a quick way to take a number and scale it given a source and destination range/set/etc.
 
 It's useful for converting data from raw values to a range used for display or other kinds of output.
 
@@ -14,10 +12,14 @@ I use this all the time in music programming, converting OSC messages to musical
 
 A simple example is:
 
-If you want to plot a point on a 500px graph using a data that lies in the 0..1 range, do:
+If you want to plot a point on a 500px graph using a data that lies in the 0..1 range, do
 
+```ruby
 Scale.transform(0.5).using(0..1, 0..500)
 => 250
+```
+
+Please note: I am not a Math Person.  If I've named any concepts here poorly, [please let me know](https://github.com/arirusso/analog/issues)!  Or [submit a pull request](https://github.com/arirusso/analog/pulls)
 
 #### Usage
 
@@ -42,7 +44,7 @@ Scale.transform(0.40).using(0..1, [0, 2, 4, 8, 12, 16, 32, 64, 128, 512])
 => 8
 ```
 
-See the examples for more
+See the [examples](https://github.com/arirusso/analog/tree/master/examples) for more
 
 ###### Core Extension
 
@@ -55,7 +57,15 @@ require "scale/core_ext"
 
 ```
 
-See the core_ext example for many more examples.
+See the [core_ext example](https://github.com/arirusso/analog/blob/master/examples/core_ext.rb) for more examples.
+
+#### Installation
+
+    gem install analog
+    
+or with Bundler
+
+    gem "analog"
 
 #### License
 
