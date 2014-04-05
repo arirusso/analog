@@ -30,17 +30,17 @@ require "scale"
 This example will scale a number down by 1/10th`
 
 ```ruby
-Scale.transform(22).using(0..150, 0..15)
+Scale.transform(22).from(0..150).to(0..15)
 => 2
 
 ```
 
 You can use Arrays and Sets
 ```ruby
-Scale.transform(8).using(Set.new([0, 2, 4, 8, 16, 64]), 0..10)
+Scale.transform(8).from(Set.new([0, 2, 4, 8, 16, 64])).to(0..10)
 => 6
 
-Scale.transform(0.40).using(0..1, [0, 2, 4, 8, 12, 16, 32, 64, 128, 512])
+Scale.transform(0.40).from(0..1).to([0, 2, 4, 8, 12, 16, 32, 64, 128, 512])
 => 8
 ```
 
