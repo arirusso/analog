@@ -1,23 +1,26 @@
 module Scale
 
+  extend self
+
   # Build a scaling scheme for the given input
   # @param [Numeric] input
   # @return [Scale::Scheme]
-  def self.transform(input)
+  def transform(input)
     Scheme.new.scale(input)
   end
+  alias_method :scale, :transform
 
   # Build a scaling scheme starting with the given source
   # @param [::Enumerable] source
   # @return [Scale::Scheme]
-  def self.from(source)
+  def from(source)
     Scheme.new.from(source)
   end
 
   # Build a scaling scheme starting with the given destination
   # @param [::Enumerable] destination  
   # @return [Scale::Scheme]
-  def self.to(destination)
+  def to(destination)
     Scheme.new.to(destination)
   end
 
@@ -25,8 +28,8 @@ module Scale
   # @param [::Enumerable] source
   # @param [::Enumerable] destination
   # @return [Scale::Scheme]
-  def self.using(source, destination)
-    Scheme.new.using(:source => source, :destination => destination)
+  def using(source, destination)
+    Scheme.new.using(source, destination)
   end
 
   # Describes a particular scaling scenario
@@ -89,6 +92,7 @@ module Scale
       @input = number
       scale? ? result : self
     end
+    alias_method :transform, :scale
 
     # Scan this scaling scenario be run?
     # @return [Boolean] Whether this scaling scenario can be run
