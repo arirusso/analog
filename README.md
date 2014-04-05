@@ -19,15 +19,13 @@ This is generally useful for converting data from raw values to a range used for
 
 I use it all the time in music programming, converting OSC messages to musical notes and things like that and figure it might be useful to others.
 
-Please note: I am not a Math Person.  If I've named any concepts here poorly, [please let me know](https://github.com/arirusso/analog/issues).  Or [submit a pull request](https://github.com/arirusso/analog/pulls)
-
 #### Usage
 
 ```ruby
 require "scale"
 ```
 
-This example will scale a number down by 1/10th`
+This example will scale a number down by 1/10th
 
 ```ruby
 Scale.transform(22).from(0..150).to(0..15)
