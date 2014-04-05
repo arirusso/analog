@@ -2,13 +2,6 @@ module Scale
 
   module Source
 
-    def self.new(source)
-      case source
-      when ::Array then Source::Array.new(source)
-      when ::Range then Source::Range.new(source)
-      end
-    end
-
     class Range
 
       def initialize(range)
@@ -25,20 +18,34 @@ module Scale
 
     end
 
-    class Array
+    class Enumerable
 
-      def initialize(set)
-        @set = set
+      def initialize(enum)
+        @enum = enum
       end
 
       def numerator(input)
-        @set.index(input).to_f
+        @enum.to_a.index(input).to_f
       end
 
       def denominator
-        (@set.size - 1).to_f
+        (@enum.size - 1).to_f
       end
 
+    end
+
+    MAP = {
+      ::Enumerable => Source::Enumerable,
+      ::Range => Source::Range
+    }      
+
+    def self.new(source)
+      klass = MAP[source.class]
+      if klass.nil?
+        klasses = MAP.select { |k,v| source.kind_of?(k) }
+        klass = klasses.values.first
+      end
+      klass.new(source) unless klass.nil?
     end
 
   end

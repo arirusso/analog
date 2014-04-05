@@ -13,7 +13,7 @@ class ScaleTest < Test::Unit::TestCase
 
       should "recognize an Array" do
         scheme = Scale::Scheme.new(:source => 0..1, :destination => [0, 10, 20, 50])
-        assert_equal(Scale::Destination::Array, scheme.destination.class)
+        assert_equal(Scale::Destination::Enumerable, scheme.destination.class)
       end
 
     end
@@ -60,6 +60,11 @@ class ScaleTest < Test::Unit::TestCase
         assert_equal(6, output)
       end
 
+      should "take an set as the source" do
+        output = Scale.transform(8).using(Set.new([0, 2, 4, 8, 16, 64]), 0..10)
+        assert_equal(6, output)
+      end
+
       should "output a float when specified" do
         output = Scale.transform(12).using(0..120, 0..1.0)
         assert_equal(0.10, output)   
@@ -73,6 +78,11 @@ class ScaleTest < Test::Unit::TestCase
       should "take a descending array as the destination" do
         output = Scale.transform(0.40).using(0..1, [512, 128, 64, 32, 16, 12, 8, 4, 2, 0])
         assert_equal(32, output)
+      end
+
+      should "take a set as the destination" do
+        output = Scale.transform(0.40).using(0..1, Set.new([0, 2, 4, 8, 12, 16, 32, 64, 128, 512]))
+        assert_equal(8, output)
       end
 
     end

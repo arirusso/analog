@@ -2,13 +2,6 @@ module Scale
 
   module Destination
 
-    def self.new(destination)
-      case destination
-      when ::Array then Destination::Array.new(destination)
-      when ::Range then Destination::Range.new(destination)
-      end
-    end
-
     class Range
 
       def initialize(range)
@@ -28,18 +21,32 @@ module Scale
 
     end
 
-    class Array
+    class Enumerable
 
-      def initialize(array)
-        @array = array
+      def initialize(enum)
+        @enum = enum
       end
 
       def scale(input, source)
         proportion = source.numerator(input) / source.denominator
-        index = [((proportion * @array.size).to_i - 1), 0].max
-        @array.at(index)
+        index = [((proportion * @enum.size).to_i - 1), 0].max
+        @enum.to_a.at(index)
       end
 
+    end
+
+    MAP = {
+      ::Enumerable => Destination::Enumerable,
+      ::Range => Destination::Range
+    }
+
+    def self.new(destination)
+      klass = MAP[destination.class]
+      if klass.nil?
+        klasses = MAP.select { |k,v| destination.kind_of?(k) }
+        klass = klasses.values.first
+      end
+      klass.new(destination) unless klass.nil?
     end
 
   end
