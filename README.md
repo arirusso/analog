@@ -33,6 +33,15 @@ Scale.transform(22).from(0..150).to(0..15)
 
 ```
 
+Output a float by using a float in the destination range
+
+
+```ruby
+Scale.transform(22).from(0..150).to(0..15.0)
+=> 2.2
+
+```
+
 You can use Arrays and Sets
 ```ruby
 Scale.transform(0.40).from(0..1).to([0, 2, 4, 8, 12, 16, 32, 64, 128, 512])
