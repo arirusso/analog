@@ -8,7 +8,7 @@ This helper provides a quick way to take a number and scale it given a source an
 
 It's useful for converting data from raw values to a range used for display or other kinds of output.
 
-I use this all the time in music programming, converting OSC messages to musical notes and things like that and figured it might be useful to others.
+I use this all the time in music programming, converting OSC messages to musical notes and things like that and figure it might be useful to others.
 
 A simple example is:
 
@@ -19,7 +19,7 @@ Scale.transform(0.5).using(0..1, 0..500)
 => 250
 ```
 
-Please note: I am not a Math Person.  If I've named any concepts here poorly, [please let me know](https://github.com/arirusso/analog/issues)!  Or [submit a pull request](https://github.com/arirusso/analog/pulls)
+Please note: I am not a Math Person.  If I've named any concepts here poorly, [please let me know](https://github.com/arirusso/analog/issues).  Or [submit a pull request](https://github.com/arirusso/analog/pulls)
 
 #### Usage
 
@@ -54,7 +54,7 @@ There is a Numeric extension that you can optionally include.
 require "scale/core_ext"
 
 0.40.scaled_from(0..1).to([0, 2, 4, 8, 12, 16, 32, 64, 128, 512])
-
+=> 8
 ```
 
 See the [core_ext example](https://github.com/arirusso/analog/blob/master/examples/core_ext.rb) for more examples.
