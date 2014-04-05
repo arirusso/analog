@@ -6,6 +6,6 @@ require "scale/source"
 # A Ruby helper for scaling numbers
 module Scale
 
-  VERSION = "0.1"
+  VERSION = "0.2"
 
 end
