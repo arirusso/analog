@@ -14,6 +14,24 @@ module Scale
       @destination = Destination.new(options[:destination]) unless options[:destination].nil?
     end
 
+    def from(source)
+      @source = Source.new(source)
+      if @input.nil? || @destination.nil?
+        self
+      else
+        @destination.scale(@input, @source)
+      end
+    end
+
+    def to(destination)
+      @destination = Destination.new(destination)
+      if @input.nil? || @source.nil?
+        self
+      else
+        @destination.scale(@input, @source) 
+      end
+    end
+
     def using(source, destination)
       @source = Source.new(source)
       @destination = Destination.new(destination)
