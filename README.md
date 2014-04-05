@@ -15,7 +15,7 @@ A simple example is:
 You want to plot a point on a 500px graph using a data that lies in the 0..1 range.
 
 ```ruby
-Scale.transform(0.5).using(0..1, 0..500)
+Scale.transform(0.5).from(0..1).to(0..500)
 => 250
 ```
 
