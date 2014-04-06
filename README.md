@@ -8,16 +8,16 @@ Provides a quick way to scale a number from one range or set to another.
 
 A simple example is:
 
-You want to plot a point on a 500px graph using a data that lies in the 0..1 range.
+You'd like to plot a point on a 500px graph using a data that lies in the 0..1 range.
 
 ```ruby
 Scale.transform(0.5).from(0..1).to(0..500)
 => 250
 ```
 
-This is generally useful for converting data from raw values to a range used for display or other kinds of output.
+It's commonly useful for preparing data to be consumed by generalized APIs and communication protocols.
 
-I use it all the time in music programming, converting OSC messages to musical notes and things like that and figure it might be useful to others.
+Personally, I've used it in graphics, audio and for converting music data between OSC and MIDI.
 
 #### Usage
 
