@@ -10,6 +10,6 @@ require "scale/source"
 # Helper for scaling numbers
 module Scale
 
-  VERSION = "0.4"
+  VERSION = "0.4.1"
 
 end
