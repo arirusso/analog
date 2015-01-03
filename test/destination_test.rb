@@ -1,6 +1,6 @@
 require "helper"
 
-class Scale::DestinationTest < Test::Unit::TestCase
+class Scale::DestinationTest < Minitest::Test
 
   context "Destination" do
 
@@ -26,4 +26,3 @@ class Scale::DestinationTest < Test::Unit::TestCase
   end
 
 end
-

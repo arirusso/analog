@@ -1,6 +1,6 @@
 require "helper"
 
-class CoreExtTest < Test::Unit::TestCase
+class CoreExtTest < Minitest::Test
 
   context "Numeric" do
 
@@ -36,7 +36,7 @@ class CoreExtTest < Test::Unit::TestCase
 
       should "scale neg/neg into neg/pos" do
         output = -14.scaled_using(-24..-12, -3..3.0)
-        assert_equal(2, output)  
+        assert_equal(2, output)
       end
 
       should "scale neg/neg to another neg/neg" do
@@ -60,7 +60,7 @@ class CoreExtTest < Test::Unit::TestCase
 
       should "output a float when specified" do
         output = 12.scaled_to(0..1.0).from(0..120)
-        assert_equal(0.10, output)   
+        assert_equal(0.10, output)
       end
 
     end

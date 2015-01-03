@@ -1,6 +1,6 @@
 require "helper"
 
-class Scale::SourceTest < Test::Unit::TestCase
+class Scale::SourceTest < Minitest::Test
 
   context "Source" do
 

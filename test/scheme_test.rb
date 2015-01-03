@@ -1,6 +1,6 @@
 require "helper"
 
-class Scale::SchemeTest < Test::Unit::TestCase
+class Scale::SchemeTest < Minitest::Test
 
   context "Scheme" do
 

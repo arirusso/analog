@@ -1,6 +1,6 @@
 require "helper"
 
-class ScaleTest < Test::Unit::TestCase
+class ScaleTest < Minitest::Test
 
   context "Scale" do
 
@@ -28,7 +28,7 @@ class ScaleTest < Test::Unit::TestCase
 
       should "scale neg/neg into neg/pos" do
         output = Scale.transform(-14).using(-24..-12, -3..3.0)
-        assert_equal(2, output)  
+        assert_equal(2, output)
       end
 
       should "scale neg/neg to another neg/neg" do
@@ -53,7 +53,7 @@ class ScaleTest < Test::Unit::TestCase
 
       should "output a float when specified" do
         output = Scale.transform(12).using(0..120, 0..1.0)
-        assert_equal(0.10, output)   
+        assert_equal(0.10, output)
       end
 
       should "take an ascending array as the destination" do
