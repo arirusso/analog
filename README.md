@@ -69,7 +69,7 @@ See the [core_ext example](https://github.com/arirusso/analog/blob/master/exampl
 #### Installation
 
     gem install analog
-    
+
 or with Bundler
 
     gem "analog"
@@ -77,5 +77,4 @@ or with Bundler
 #### License
 
 Licensed under Apache 2.0, See the file LICENSE
-Copyright (c) 2014 [Ari Russo](http://arirusso.com) 
-
+Copyright (c) 2014-2014 [Ari Russo](http://arirusso.com) 
