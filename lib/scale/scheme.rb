@@ -18,7 +18,7 @@ module Scale
   end
 
   # Build a scaling scheme starting with the given destination
-  # @param [::Enumerable] destination  
+  # @param [::Enumerable] destination
   # @return [Scale::Scheme]
   def to(destination)
     Scheme.new.to(destination)
@@ -42,8 +42,15 @@ module Scale
     # @option options [::Enumerable] :source The source for this scaling scenario
     def initialize(options = {})
       @input = options[:input]
-      @source = Source.new(options[:source]) unless options[:source].nil?
-      @destination = Destination.new(options[:destination]) unless options[:destination].nil?
+      @destination = nil
+      @source = nil
+
+      unless options[:source].nil?
+        @source = Source.new(options[:source])
+      end
+      unless options[:destination].nil?
+        @destination = Destination.new(options[:destination])
+      end
     end
 
     # Set the source for this scaling scenario.  If on calling this method, the scenario
@@ -57,8 +64,8 @@ module Scale
       scale? ? result : self
     end
 
-    # Set the destination for this scaling scenario.  If on calling this method, the 
-    # scenario has all of its needed properties, the scaled value will be returned.  
+    # Set the destination for this scaling scenario.  If on calling this method, the
+    # scenario has all of its needed properties, the scaled value will be returned.
     # Otherwise this method will return the updated Scheme object.
     #
     # @param [::Enumerable] destination
@@ -68,8 +75,8 @@ module Scale
       scale? ? result : self
     end
 
-    # Set both the source and destination on this scheme. If on calling this method, the 
-    # scenario has all of its needed properties, the scaled value will be returned.  
+    # Set both the source and destination on this scheme. If on calling this method, the
+    # scenario has all of its needed properties, the scaled value will be returned.
     # Otherwise this method will return the updated Scheme object.
     #
     # @param [::Enumerable] source
@@ -82,10 +89,10 @@ module Scale
     end
 
 
-    # Set the input of this scaling scenario.  If on calling this method, the 
-    # scenario has all of its needed properties, the scaled value will be returned.  
+    # Set the input of this scaling scenario.  If on calling this method, the
+    # scenario has all of its needed properties, the scaled value will be returned.
     # Otherwise this method will return the updated Scheme object.
-    # 
+    #
     # @param [Numeric] number
     # @return [Numeric, Scale::Scheme]
     def scale(number)
