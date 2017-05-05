@@ -1,8 +1,11 @@
 # Analog
 # Helper for scaling numbers
-# (c) 2014-2015 Ari Russo
+# https://github.com/arirusso/analog
+#
+# (c) 2014-2017 Ari Russo
 # Licensed under Apache 2.0
 #
+
 require "scale/destination"
 require "scale/scheme"
 require "scale/source"
