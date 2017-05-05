@@ -1,6 +1,6 @@
-# analog
+# Analog
 
-A Ruby helper for scaling numbers.
+A Ruby helper for scaling numbers
 
 #### Background
 
