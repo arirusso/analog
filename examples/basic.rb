@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require "scale"
-require "set"
+require 'scale'
+require 'set'
 
 # Using Ranges
 puts Scale.transform(10).using(-24..24, 0..3.0)

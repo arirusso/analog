@@ -1,6 +1,8 @@
-module Scale
+# frozen_string_literal: true
 
-  extend self
+# Module level helper functions for building a Scheme
+module Scale
+  module_function
 
   # Build a scaling scheme for the given input
   # @param [Numeric] input
@@ -8,7 +10,7 @@ module Scale
   def transform(input)
     Scheme.new.scale(input)
   end
-  alias_method :scale, :transform
+  alias scale transform
 
   # Build a scaling scheme starting with the given source
   # @param [::Enumerable] source
@@ -34,7 +36,6 @@ module Scale
 
   # Describes a particular scaling scenario
   class Scheme
-
     attr_reader :destination, :input, :source
 
     # @param [Hash] options
@@ -45,12 +46,8 @@ module Scale
       @destination = nil
       @source = nil
 
-      unless options[:source].nil?
-        @source = Source.new(options[:source])
-      end
-      unless options[:destination].nil?
-        @destination = Destination.new(options[:destination])
-      end
+      @source = Source.new(options[:source]) unless options[:source].nil?
+      @destination = Destination.new(options[:destination]) unless options[:destination].nil?
     end
 
     # Set the source for this scaling scenario.  If on calling this method, the scenario
@@ -88,7 +85,6 @@ module Scale
       scale? ? result : self
     end
 
-
     # Set the input of this scaling scenario.  If on calling this method, the
     # scenario has all of its needed properties, the scaled value will be returned.
     # Otherwise this method will return the updated Scheme object.
@@ -99,7 +95,7 @@ module Scale
       @input = number
       scale? ? result : self
     end
-    alias_method :transform, :scale
+    alias transform scale
 
     # Scan this scaling scenario be run?
     # @return [Boolean] Whether this scaling scenario can be run
@@ -112,7 +108,5 @@ module Scale
     def result
       @result ||= @destination.scale(@input, @source)
     end
-
   end
-
 end

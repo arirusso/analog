@@ -1,12 +1,13 @@
-require "scale"
+# frozen_string_literal: true
 
-# Extend the Numeric class to add a scaling helper. 
+require 'scale'
+
+# Extend the Numeric class to add a scaling helper.
 # eg: 0.40.scaled_from(0..1).to([512, 128, 64, 32, 16, 12, 8, 4, 2, 0])
 #
 # This is not included by default with the rest of the library.  use require "scale/core_ext"
 #
 class Numeric
-
   # Build a Scheme for this numeric as input.
   # @return [Scale::Scheme]
   def scaled
@@ -21,9 +22,9 @@ class Numeric
     Scale.transform(self).using(source, destination)
   end
 
-  # Build a scheme with this numeric as input and add the given source to it. If 
-  # on calling this method, the scheme has all of its needed properties, the scaled 
-  # value will be returned.  Otherwise # this method will return the updated Scheme 
+  # Build a scheme with this numeric as input and add the given source to it. If
+  # on calling this method, the scheme has all of its needed properties, the scaled
+  # value will be returned.  Otherwise # this method will return the updated Scheme
   # object.
   #
   # @param [Scale::Source] source
@@ -32,9 +33,9 @@ class Numeric
     Scale.transform(self).from(source)
   end
 
-  # Build a scheme with this numeric as input and add the given destination to it. If 
-  # on calling this method, the scheme has all of its needed properties, the scaled 
-  # value will be returned.  Otherwise # this method will return the updated Scheme 
+  # Build a scheme with this numeric as input and add the given destination to it. If
+  # on calling this method, the scheme has all of its needed properties, the scaled
+  # value will be returned.  Otherwise # this method will return the updated Scheme
   # object.
   #
   # @param [Scale::Destination] destination
@@ -42,5 +43,4 @@ class Numeric
   def scaled_to(destination)
     Scale.transform(self).to(destination)
   end
-
 end
