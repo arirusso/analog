@@ -22,7 +22,7 @@ Personally, I've used it in graphics, audio and for converting music data betwee
 #### Usage
 
 ```ruby
-require "scale"
+require 'scale'
 ```
 
 This example will scale a number down by 1/10th
@@ -58,7 +58,7 @@ See the [examples](https://github.com/arirusso/analog/tree/master/examples) for 
 There is a Numeric extension that you can optionally include.
 
 ```ruby
-require "scale/core_ext"
+require 'scale/core_ext'
 
 0.40.scaled_from(0..1).to([0, 2, 4, 8, 12, 16, 32, 64, 128, 512])
 => 8
@@ -72,10 +72,10 @@ See the [core_ext example](https://github.com/arirusso/analog/blob/master/exampl
 
 or with Bundler
 
-    gem "analog"
+    gem 'analog'
 
 #### License
 
 Licensed under Apache 2.0, See the file LICENSE
 
-Copyright (c) 2014-2017 [Ari Russo](http://arirusso.com)
+Copyright (c) 2014-2022 [Ari Russo](http://arirusso.com)
